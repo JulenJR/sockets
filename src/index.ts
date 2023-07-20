@@ -11,6 +11,8 @@ app.get('/', (req, res) => {
 });
 
 io.on('connection', (socket: Socket) => {
+    console.log("<zx<zz<z<<<z>>>>>></z> user has conected");
+    
     
   socket.on('chat message', (data: { username: string; message: string }) => {
     io.emit('chat message', data);
