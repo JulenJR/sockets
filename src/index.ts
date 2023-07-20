@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
 });
 
 io.on('connection', (socket: Socket) => {
-    console.log("<zx<zz<z<<<z>>>>>></z> user has conected");
+    console.log("user Conection logic");
     
     
   socket.on('chat message', (data: { username: string; message: string }) => {
@@ -24,5 +24,5 @@ io.on('connection', (socket: Socket) => {
 });
 
 server.listen(3000, () => {
-  console.log('Server listening on port 3000');
+  console.log('user disconection logic');
 });
