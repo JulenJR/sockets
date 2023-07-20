@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Socket.IO Chat</title>
-</head>
-<body>
-  <h1>Socket.IO Chat</h1>
-  <ul id="messages"></ul>
-  <form id="message-form">
-    <input id="username" placeholder="Username" autocomplete="off" />
-    <input id="input" placeholder="Message" autocomplete="off" />
-    <button>Send</button>
-  </form>
+  <head>
+    <title>Socket.IO Chat</title>
+  </head>
+  <body>
+    <h1>Socket.IO Chat</h1>
+    <ul id="messages"></ul>
+    <form id="message-form">
+      <input id="username" placeholder="Username" autocomplete="off" />
+      <input id="input" placeholder="Message" autocomplete="off" />
+      <button>Send</button>
+    </form>
 
-  <script src="/socket.io/socket.io.js"></script>
-  <script>
-    const socket = io();
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io();
 
-    const messages = document.getElementById('messages');
-    const form = document.getElementById('message-form');
-    const usernameInput = document.getElementById('username');
-    const messageInput = document.getElementById('input');
+      const messages = document.getElementById("messages");
+      const form = document.getElementById("message-form");
+      const usernameInput = document.getElementById("username");
+      const messageInput = document.getElementById("input");
 
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const username = usernameInput.value.trim();
-      const message = messageInput.value.trim();
-      if (username && message) {
-        socket.emit('chat message', { username, message });
-        messageInput.value = '';
-      }
-    });
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const username = usernameInput.value.trim();
+        const message = messageInput.value.trim();
+        if (username && message) {
+          socket.emit("chat message", { username, message });
+          messageInput.value = "";
+        }
+      });
 
-    socket.on('chat message', (data) => {
-      const li = document.createElement('li');
-      li.textContent = `${data.username}: ${data.message}`;
-      messages.appendChild(li);
-    });
-  </script>
-</body>
+      socket.on("chat message", (data) => {
+        const li = document.createElement("li");
+        li.textContent = `${data.username}: ${data.message}`;
+        messages.appendChild(li);
+      });
+    </script>
+  </body>
 </html>
