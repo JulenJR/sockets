@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
 });
 
 io.on('connection', (socket: Socket) => {
-    console.log("user Conection logic");
+    console.log("user Conection logic <-- [HERE]");
     
     
   socket.on('chat message', (data: { username: string; message: string }) => {
@@ -24,5 +24,5 @@ io.on('connection', (socket: Socket) => {
 });
 
 server.listen(3000, () => {
-  console.log('user disconection logic');
+  console.log('user disconection logic <-- [HERE]');
 });
