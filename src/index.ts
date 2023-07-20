@@ -19,7 +19,7 @@ io.on('connection', (socket: Socket) => {
   });
 
   socket.on('disconnect', () => {
-    console.log('user disconnected <><><><><>><><>>>');
+    console.log('user disconnected <><><><><>><><>>>:)');
   });
 });
 
