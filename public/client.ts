@@ -1,4 +1,6 @@
-const socket = io();
+import { io, Socket } from 'socket.io-client';
+
+const socket: Socket = io();
 
 const messageContainer = document.getElementById('message-container');
 const messageList = document.getElementById('messages');
@@ -8,10 +10,10 @@ const messageInput = document.getElementById('input-message') as HTMLInputElemen
 function addMessageToUI(message: string) {
   const li = document.createElement('li');
   li.innerText = message;
-  messageList.appendChild(li);
+  messageList?.appendChild(li);
 }
 
-messageForm.addEventListener('submit', (e) => {
+messageForm?.addEventListener('submit', (e) => {
   e.preventDefault();
   const message = messageInput.value.trim();
   if (message) {
